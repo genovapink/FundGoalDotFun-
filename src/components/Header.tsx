@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
 import { motion } from 'motion/react';
-import logoImage from 'src\assets\fundgoaldotfun.png';
+import logoImage from 'src/assets/fundgoaldotfun.png'
 
 export function Header() {
   const location = useLocation();
