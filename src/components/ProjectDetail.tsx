@@ -5,7 +5,7 @@ import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Input } from './ui/input';
-import { motion } from 'framer-motion'; // Perbaikan: biasanya import dari 'framer-motion'
+import { motion } from 'framer-motion'; 
 import {
   Heart,
   Users,
@@ -23,7 +23,6 @@ export function ProjectDetail() {
   const project = {
     id: '1',
     name: 'Rosy-Scan',
-    // Perbaikan: Menggunakan backtick (`) untuk string multiline
     description: `Rosy adalah eco-assistant cerdas yang membantu masyarakat mengelola sampah secara benar, menyenangkan, dan bermanfaat. Rosy tidak hanya memindai sampah, tetapi juga memberikan edukasi, panduan, dan reward nyata bagi setiap aksi peduli lingkungan.
 
 Dengan teknologi AI Image Recognition, Rosy mampu mengenali apakah sebuah sampah organik atau non-organik, lalu memberi tahu cara memilahnya dengan benar. Setelah sampah dipilah, pengguna diarahkan untuk mengumpulkan dan menyetorkannya ke Bank Sampah resmi yang ditampilkan pada peta real-time (bukan dummy map). Setiap titik bank sampah yang terhubung akan muncul langsung di peta aplikasi.
@@ -31,12 +30,12 @@ Dengan teknologi AI Image Recognition, Rosy mampu mengenali apakah sebuah sampah
 Setelah pengguna menyetor sampah di titik Bank Sampah terdekat, Rosy memberikan 50 poin untuk setiap setoran yang divalidasi. Poin tersebut dapat ditukarkan dengan hadiah:
 150 poin → Stiker Rosy
 300 poin → NFT Rosy eksklusif
-320 poin → Badge Eco-Warrior, yang akan tampil di profil pengguna (Profil dibuat menggunakan login akun Gmail untuk keamanan & personalisasi)
+320 poin → Badge Eco-Warrior, yang akan tampil di profil pengguna.
 
 Rosy diciptakan untuk membuat kegiatan memilah sampah menjadi lebih mudah, lebih terarah, dan lebih seru, sekaligus membantu masyarakat menciptakan lingkungan yang lebih bersih dengan sistem reward yang nyata dan transparan.
 Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menyenangkan.`,
     image: 'https://i.pinimg.com/736x/c8/80/df/c880dfc393f0bda44f9502b7fb396ee4.jpg',
-    youtubeEmbed: 'https://www.youtube.com/embed/QQYgCxu988s?si=9QH5kTW1o4si4yI7',
+    youtubeEmbed: 'https://www.youtube.com/embed/QQYgCxu988s',
     category: 'Education',
     raised: 0,
     goal: 50,
@@ -48,7 +47,7 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
         date: 'Now',
         title: 'Project Launch',
         content: 'Excited to launch'
-      },
+      }
     ],
     teamMembers: [
       { name: 'Mulankid', role: 'Developer', avatar: 'https://i.pinimg.com/736x/9f/22/07/9f2207d9c7641b8de45361fa9d4916f4.jpg' },
@@ -77,11 +76,7 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
         className="max-w-6xl mx-auto"
       >
         <div className="relative rounded-xl overflow-hidden mb-8">
-          <img
-            src={project.image}
-            alt={project.name}
-            className="w-full h-64 object-cover"
-          />
+          <img src={project.image} alt={project.name} className="w-full h-64 object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-8">
             <Badge className="bg-gray-900/90 backdrop-blur-sm border-gray-800 text-white mb-4">
@@ -95,19 +90,16 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
           <div className="lg:col-span-2 space-y-6">
             <FundingChart data={fundingHistory} target={project.goal} />
 
-            {project.youtubeEmbed && (
-              <div className="aspect-video w-full">
-                <iframe 
-                  className="w-full h-full rounded-xl"
-                  src={project.youtubeEmbed} 
-                  title="YouTube video player" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  referrerPolicy="strict-origin-when-cross-origin" 
-                  allowFullScreen
-                ></iframe>
-              </div>
-            )}
+            <div className="aspect-video w-full">
+              <iframe 
+                className="w-full h-full rounded-xl"
+                src={project.youtubeEmbed} 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+              ></iframe>
+            </div>
 
             <div className="grid grid-cols-3 gap-4">
               <Card className="p-4 bg-gray-900/50 border-gray-800">
@@ -127,50 +119,21 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
             <Card className="bg-gray-900/50 border-gray-800">
               <Tabs defaultValue="about" className="p-6">
                 <TabsList className="bg-black">
-                  <TabsTrigger value="about" className="text-gray-400 data-[state=active]:text-white">About</TabsTrigger>
-                  <TabsTrigger value="updates" className="text-gray-400 data-[state=active]:text-white">Updates</TabsTrigger>
+                  <TabsTrigger value="about">About</TabsTrigger>
+                  <TabsTrigger value="updates">Updates</TabsTrigger>
                 </TabsList>
-
                 <TabsContent value="about" className="space-y-4 mt-6">
-                  <div>
-                    <h3 className="text-lg mb-3 text-white">About This Project</h3>
-                    <p className="text-gray-400 leading-relaxed whitespace-pre-wrap">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-lg mb-3 text-white">Team</h3>
-                    <div className="space-y-3">
-                      {project.teamMembers.map((member, index) => (
-                        <div key={index} className="flex items-center gap-3">
-                          <img
-                            src={member.avatar}
-                            alt={member.name}
-                            className="w-12 h-12 rounded-full object-cover"
-                          />
-                          <div>
-                            <div className="text-white">{member.name}</div>
-                            <div className="text-sm text-gray-400">{member.role}</div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <h3 className="text-lg text-white">About This Project</h3>
+                  <p className="text-gray-400 leading-relaxed whitespace-pre-wrap">
+                    {project.description}
+                  </p>
                 </TabsContent>
-
                 <TabsContent value="updates" className="space-y-4 mt-6">
-                  <h3 className="text-lg mb-4 text-white">Project Updates</h3>
-                  {project.updates.map((update, index) => (
-                    <div
-                      key={index}
-                      className="p-4 rounded-lg bg-black border border-gray-800"
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="text-white">{update.title}</div>
-                        <div className="text-sm text-gray-400">{update.date}</div>
-                      </div>
-                      <p className="text-sm text-gray-400">{update.content}</p>
+                  {project.updates.map((u, i) => (
+                    <div key={i} className="p-4 rounded-lg bg-black border border-gray-800 text-white">
+                      <div className="font-bold">{u.title}</div>
+                      <div className="text-sm text-gray-500">{u.date}</div>
+                      <p className="mt-2 text-gray-400">{u.content}</p>
                     </div>
                   ))}
                 </TabsContent>
@@ -180,71 +143,31 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
 
           <div className="space-y-6">
             <Card className="p-6 bg-gray-900/50 border-gray-800 sticky top-24">
-              <div className="space-y-6">
-                <div>
-                  <h3 className="mb-3 flex items-center gap-2 text-white">
-                    <Heart className="w-5 h-5" />
-                    Support This Project
-                  </h3>
-                  <p className="text-sm text-gray-400 mb-3">
-                    Send BASE directly to the creator
-                  </p>
-                  
-                  {!showQR ? (
-                    <div className="space-y-3">
-                      <div className="p-3 bg-black rounded-lg border border-gray-800">
-                        <p className="text-xs text-gray-400 mb-1">Wallet Address</p>
-                        <p className="text-xs font-mono break-all text-white">{project.donationWallet}</p>
-                      </div>
-                      <Button 
-                        onClick={() => setShowQR(true)}
-                        variant="outline" 
-                        className="w-full border-gray-700 hover:bg-gray-800 text-white"
-                      >
-                        <QrCode className="w-4 h-4 mr-2" />
-                        Show QR Code
-                      </Button>
-                    </div>
-                  ) : (
-                    <div className="space-y-3">
-                      <div className="bg-white p-4 rounded-lg">
-                        <img 
-                          src={qrCodeUrl} 
-                          alt="Donation QR Code" 
-                          className="w-full h-auto"
-                        />
-                      </div>
-                      <p className="text-xs text-center text-gray-400">
-                        Scan to donate BASE
-                      </p>
-                      <Button 
-                        onClick={() => setShowQR(false)}
-                        variant="outline" 
-                        className="w-full border-gray-700 hover:bg-gray-800 text-white"
-                      >
-                        Hide QR Code
-                      </Button>
-                    </div>
-                  )}
-                </div>
-
-                <div className="pt-6 border-t border-gray-800">
-                  <Input
-                    type="number"
-                    placeholder="Amount in BASE"
-                    value={donationAmount}
-                    onChange={(e) => setDonationAmount(e.target.value)}
-                    className="bg-black border-gray-800 text-white mb-3"
-                  />
-                  <Button className="w-full bg-white text-black hover:bg-gray-200 mb-3">
-                    <Heart className="w-4 h-4 mr-2" />
-                    Donate Now
+              <h3 className="text-white mb-4">Support This Project</h3>
+              {!showQR ? (
+                <Button onClick={() => setShowQR(true)} className="w-full bg-white text-black">
+                  Show QR Code
+                </Button>
+              ) : (
+                <div className="space-y-4">
+                  <div className="bg-white p-2 rounded">
+                    <img src={qrCodeUrl} alt="QR" className="w-full" />
+                  </div>
+                  <Button onClick={() => setShowQR(false)} variant="outline" className="w-full text-white">
+                    Hide QR
                   </Button>
                 </div>
-
-                <Button variant="outline" className="w-full border-gray-700 hover:bg-gray-800 text-white">
-                  <Share2 className="w-4 h-4 mr-2" />
-                  Share Project
+              )}
+              <div className="mt-4">
+                <Input 
+                  type="number" 
+                  placeholder="Amount in BASE" 
+                  value={donationAmount}
+                  onChange={(e) => setDonationAmount(e.target.value)}
+                  className="bg-black text-white border-gray-800 mb-2"
+                />
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                  Donate Now
                 </Button>
               </div>
             </Card>
