@@ -22,31 +22,42 @@ export function ProjectDetail() {
   // Mock project data
   const project = {
     id: '1',
-    name: 'Open Science Lab',
-    description: 'Funding groundbreaking research in quantum computing and AI. Our mission is to make cutting-edge research accessible to everyone and accelerate scientific discovery through decentralized collaboration.',
-    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+    name: 'Rosy-Scan',
+    description: 'About Rosy
+
+Rosy adalah eco-assistant cerdas yang membantu masyarakat mengelola sampah secara benar, menyenangkan, dan bermanfaat. Rosy tidak hanya memindai sampah, tetapi juga memberikan edukasi, panduan, dan reward nyata bagi setiap aksi peduli lingkungan.
+
+Dengan teknologi AI Image Recognition, Rosy mampu mengenali apakah sebuah sampah organik atau non-organik, lalu memberi tahu cara memilahnya dengan benar. Setelah sampah dipilah, pengguna diarahkan untuk mengumpulkan dan menyetorkannya ke Bank Sampah resmi yang ditampilkan pada peta real-time (bukan dummy map). Setiap titik bank sampah yang terhubung akan muncul langsung di peta aplikasi.
+
+Setelah pengguna menyetor sampah di titik Bank Sampah terdekat, Rosy memberikan 50 poin untuk setiap setoran yang divalidasi. Poin tersebut dapat ditukarkan dengan hadiah:
+
+150 poin → Stiker Rosy
+
+300 poin → NFT Rosy eksklusif
+
+320 poin → Badge Eco-Warrior, yang akan tampil di profil pengguna (Profil dibuat menggunakan login akun Gmail untuk keamanan & personalisasi)
+
+Rosy diciptakan untuk membuat kegiatan memilah sampah menjadi lebih mudah, lebih terarah, dan lebih seru, sekaligus membantu masyarakat menciptakan lingkungan yang lebih bersih dengan sistem reward yang nyata dan transparan.
+
+Scan. Pilah. Setor. Dapatkan Reward. Bersama Rosy, menjaga bumi jadi lebih menyenangkan.',
+    image: 'https://i.pinimg.com/736x/c8/80/df/c880dfc393f0bda44f9502b7fb396ee4.jpg',
     youtubeEmbed: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    category: 'Research',
-    raised: 32.5,
+    category: 'Education',
+    raised: 0,
     goal: 50,
-    supporters: 234,
-    createdAt: '2 days ago',
-    donationWallet: '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb',
+    supporters: 0,
+    createdAt: 'Now',
+    donationWallet: '0x0e3fcdd57e0b52a42e83d1b7bc5d75f782076057',
     updates: [
       {
-        date: '2 days ago',
+        date: 'Now',
         title: 'Project Launch',
-        content: 'Excited to launch Open Science Lab! Join us in revolutionizing research funding.'
+        content: 'Excited to launch'
       },
-      {
-        date: '1 day ago',
-        title: 'First Milestone',
-        content: 'Thank you to our amazing community for the support.'
-      }
+      
     ],
     teamMembers: [
-      { name: 'Dr. Sarah Chen', role: 'Lead Researcher', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop' },
-      { name: 'Alex Kumar', role: 'Developer', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop' }
+      { name: 'Mulankid', role: 'Developer', avatar: 'https://i.pinimg.com/736x/9f/22/07/9f2207d9c7641b8de45361fa9d4916f4.jpg' },
     ]
   };
 
@@ -96,20 +107,7 @@ export function ProjectDetail() {
 
             {/* YouTube Video */}
             {project.youtubeEmbed && (
-              <Card className="p-0 bg-gray-900/50 border-gray-800 overflow-hidden">
-                <div className="aspect-video">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src={project.youtubeEmbed}
-                    title="Project Video"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  ></iframe>
-                </div>
-              </Card>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/QQYgCxu988s?si=9QH5kTW1o4si4yI7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             )}
 
             {/* Stats Cards */}
