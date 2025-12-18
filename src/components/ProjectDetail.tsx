@@ -5,7 +5,7 @@ import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Input } from './ui/input';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion'; // Perbaikan: biasanya import dari 'framer-motion'
 import {
   Heart,
   Users,
@@ -23,24 +23,20 @@ export function ProjectDetail() {
   const project = {
     id: '1',
     name: 'Rosy-Scan',
-    description: 'About Rosy
+    // Perbaikan: Menggunakan backtick (`) untuk string multiline
+    description: `Rosy adalah eco-assistant cerdas yang membantu masyarakat mengelola sampah secara benar, menyenangkan, dan bermanfaat. Rosy tidak hanya memindai sampah, tetapi juga memberikan edukasi, panduan, dan reward nyata bagi setiap aksi peduli lingkungan.
 
-Rosy adalah eco-assistant cerdas yang membantu masyarakat mengelola sampah secara benar, menyenangkan, dan bermanfaat. Rosy tidak hanya memindai sampah, tetapi juga memberikan edukasi, panduan, dan reward nyata bagi setiap aksi peduli lingkungan,
+Dengan teknologi AI Image Recognition, Rosy mampu mengenali apakah sebuah sampah organik atau non-organik, lalu memberi tahu cara memilahnya dengan benar. Setelah sampah dipilah, pengguna diarahkan untuk mengumpulkan dan menyetorkannya ke Bank Sampah resmi yang ditampilkan pada peta real-time (bukan dummy map). Setiap titik bank sampah yang terhubung akan muncul langsung di peta aplikasi.
 
-Dengan teknologi AI Image Recognition, Rosy mampu mengenali apakah sebuah sampah organik atau non-organik, lalu memberi tahu cara memilahnya dengan benar. Setelah sampah dipilah, pengguna diarahkan untuk mengumpulkan dan menyetorkannya ke Bank Sampah resmi yang ditampilkan pada peta real-time (bukan dummy map), Setiap titik bank sampah yang terhubung akan muncul langsung di peta aplikasi,
-
-Setelah pengguna menyetor sampah di titik Bank Sampah terdekat, Rosy memberikan 50 poin untuk setiap setoran yang divalidasi, Poin tersebut dapat ditukarkan dengan hadiah:
-
+Setelah pengguna menyetor sampah di titik Bank Sampah terdekat, Rosy memberikan 50 poin untuk setiap setoran yang divalidasi. Poin tersebut dapat ditukarkan dengan hadiah:
 150 poin → Stiker Rosy
-
 300 poin → NFT Rosy eksklusif
-
 320 poin → Badge Eco-Warrior, yang akan tampil di profil pengguna (Profil dibuat menggunakan login akun Gmail untuk keamanan & personalisasi)
 
-Rosy diciptakan untuk membuat kegiatan memilah sampah menjadi lebih mudah, lebih terarah, dan lebih seru, sekaligus membantu masyarakat menciptakan lingkungan yang lebih bersih dengan sistem reward yang nyata dan transparan,
-Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menyenangkan.',
+Rosy diciptakan untuk membuat kegiatan memilah sampah menjadi lebih mudah, lebih terarah, dan lebih seru, sekaligus membantu masyarakat menciptakan lingkungan yang lebih bersih dengan sistem reward yang nyata dan transparan.
+Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menyenangkan.`,
     image: 'https://i.pinimg.com/736x/c8/80/df/c880dfc393f0bda44f9502b7fb396ee4.jpg',
-    youtubeEmbed: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    youtubeEmbed: 'https://www.youtube.com/embed/QQYgCxu988s?si=9QH5kTW1o4si4yI7',
     category: 'Education',
     raised: 0,
     goal: 50,
@@ -53,7 +49,6 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
         title: 'Project Launch',
         content: 'Excited to launch'
       },
-      
     ],
     teamMembers: [
       { name: 'Mulankid', role: 'Developer', avatar: 'https://i.pinimg.com/736x/9f/22/07/9f2207d9c7641b8de45361fa9d4916f4.jpg' },
@@ -62,7 +57,6 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
 
   const progressPercentage = (project.raised / project.goal) * 100;
 
-  // Mock funding history data
   const fundingHistory = [
     { date: 'Jan 1', amount: 5, type: 'donation' as const },
     { date: 'Jan 3', amount: 3, type: 'donation' as const },
@@ -82,7 +76,6 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
         animate={{ opacity: 1, y: 0 }}
         className="max-w-6xl mx-auto"
       >
-        {/* Hero Section */}
         <div className="relative rounded-xl overflow-hidden mb-8">
           <img
             src={project.image}
@@ -99,17 +92,23 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Funding Chart */}
             <FundingChart data={fundingHistory} target={project.goal} />
 
-            {/* YouTube Video */}
             {project.youtubeEmbed && (
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/QQYgCxu988s?si=9QH5kTW1o4si4yI7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <div className="aspect-video w-full">
+                <iframe 
+                  className="w-full h-full rounded-xl"
+                  src={project.youtubeEmbed} 
+                  title="YouTube video player" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerPolicy="strict-origin-when-cross-origin" 
+                  allowFullScreen
+                ></iframe>
+              </div>
             )}
 
-            {/* Stats Cards */}
             <div className="grid grid-cols-3 gap-4">
               <Card className="p-4 bg-gray-900/50 border-gray-800">
                 <div className="text-sm text-gray-400 mb-1">Raised</div>
@@ -125,7 +124,6 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
               </Card>
             </div>
 
-            {/* Tabs */}
             <Card className="bg-gray-900/50 border-gray-800">
               <Tabs defaultValue="about" className="p-6">
                 <TabsList className="bg-black">
@@ -136,7 +134,7 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
                 <TabsContent value="about" className="space-y-4 mt-6">
                   <div>
                     <h3 className="text-lg mb-3 text-white">About This Project</h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="text-gray-400 leading-relaxed whitespace-pre-wrap">
                       {project.description}
                     </p>
                   </div>
@@ -149,7 +147,7 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
                           <img
                             src={member.avatar}
                             alt={member.name}
-                            className="w-12 h-12 rounded-full"
+                            className="w-12 h-12 rounded-full object-cover"
                           />
                           <div>
                             <div className="text-white">{member.name}</div>
@@ -180,11 +178,9 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
             </Card>
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-6">
             <Card className="p-6 bg-gray-900/50 border-gray-800 sticky top-24">
               <div className="space-y-6">
-                {/* Donate Section */}
                 <div>
                   <h3 className="mb-3 flex items-center gap-2 text-white">
                     <Heart className="w-5 h-5" />
@@ -232,7 +228,6 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
                   )}
                 </div>
 
-                {/* Quick Donate */}
                 <div className="pt-6 border-t border-gray-800">
                   <Input
                     type="number"
@@ -247,7 +242,6 @@ Scan, Pilah, Setor, Dapatkan Reward, Bersama Rosy, menjaga bumi jadi lebih menye
                   </Button>
                 </div>
 
-                {/* Share */}
                 <Button variant="outline" className="w-full border-gray-700 hover:bg-gray-800 text-white">
                   <Share2 className="w-4 h-4 mr-2" />
                   Share Project
