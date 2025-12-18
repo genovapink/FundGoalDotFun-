@@ -38,7 +38,6 @@ Setelah pengguna menyetor sampah di titik Bank Sampah terdekat, Rosy memberikan 
 320 poin → Badge Eco-Warrior, yang akan tampil di profil pengguna (Profil dibuat menggunakan login akun Gmail untuk keamanan & personalisasi)
 
 Rosy diciptakan untuk membuat kegiatan memilah sampah menjadi lebih mudah, lebih terarah, dan lebih seru, sekaligus membantu masyarakat menciptakan lingkungan yang lebih bersih dengan sistem reward yang nyata dan transparan.
-
 Scan. Pilah. Setor. Dapatkan Reward. Bersama Rosy, menjaga bumi jadi lebih menyenangkan.',
     image: 'https://i.pinimg.com/736x/c8/80/df/c880dfc393f0bda44f9502b7fb396ee4.jpg',
     youtubeEmbed: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
