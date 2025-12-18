@@ -10,13 +10,13 @@ import { Search, Heart } from 'lucide-react';
 const projects = [
   {
     id: '1',
-    name: 'Open Science Lab',
-    description: 'Funding groundbreaking research in quantum computing and AI',
-    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=300&fit=crop',
-    category: 'Research',
-    raised: 32.5,
+    name: 'Rosy-Scan',
+    description: 'Scan. Pilah. Setor. Dapatkan Reward. Bersama Rosy, menjaga bumi jadi lebih menyenangkan.',
+    image: 'https://i.pinimg.com/736x/c8/80/df/c880dfc393f0bda44f9502b7fb396ee4.jpg',
+    category: 'Education',
+    raised: 0,
     goal: 50,
-    supporters: 234,
+    supporters: 0,
   },
   {
     id: '2',
